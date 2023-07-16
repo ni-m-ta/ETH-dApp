@@ -1,18 +1,17 @@
 # Create your first dApp.
 
-![](public/ETH-banner-blur.png)
+# How to start the application in the local environment
+1. Clone the repository in your local environment
+2. Create a your wallet of Metamask
+3. Run the following command in your local environment
+`$ yarn client start`
 
-このコースを始めるには、下記のステップを実行してください。
+# Functions
+* send ETH to other addresses
+* send a message to other addresses
 
-1. あなたのGithubアカウントにこのレポジトリをフォークしましょう。
-
-2. クローンしたレポジトリをあなたのローカル環境にダウンロードしましょう。
-
-3. ターミナルを開き、ディレクトリのルートで `yarn install` を実行します。
-
-4. `yarn client start` を実行してプロジェクトを開始します。
-
-5. コーディングを始めましょう。
-
-----
-Banner logo is created by modifying "ETH diamond" © [Ethereum Foundation](https://ethereum.org/en/assets/) (Licensed under CC BY 4.0).
+# How it works
+* deploy the smart contrac written in Solidity in Ethereum network
+* packages/contract/scripts/deploy.js: allow the interaction between frontend written in JS and Ethereum network
+* packages/client/src/App.js: a frontend and backend
+* packages/contract/contracts/WavePortal.sol: a smart contract
