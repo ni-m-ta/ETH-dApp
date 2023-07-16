@@ -12,7 +12,7 @@ const main = async () => {
   console.log("Account balance: ", accountBalance.toString());
 
   const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
-  /* コントラクトに資金を提供できるようにする */
+  /* put ETH into the contract */
   const waveContract = await waveContractFactory.deploy({
     value: hre.ethers.utils.parseEther("0.001"),
   });

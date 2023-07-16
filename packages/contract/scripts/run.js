@@ -1,7 +1,7 @@
 const main = async () => {
     const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
     /*
-     * 0.1ETHをコントラクトに提供してデプロイする
+     * deploy and put 0.1ETH to the contract
      */
     const waveContract = await waveContractFactory.deploy({
     value: hre.ethers.utils.parseEther("0.1"),
@@ -10,7 +10,7 @@ const main = async () => {
     console.log("Contract deployed to:", waveContract.address);
 
     /*
-     * コントラクトの残高を取得し、結果を出力（0.1ETHであることを確認）
+     * get the amount of ETH in the contract and output the amount
      */
     let contractBalance = await hre.ethers.provider.getBalance(
     waveContract.address
@@ -21,13 +21,13 @@ const main = async () => {
     );
 
     /*
-     * Waveし、トランザクションが完了するまで待機
+     * wait for the transaction to complete
      */
     let waveTxn = await waveContract.wave("A message!");
     await waveTxn.wait();
 
     /*
-     * Waveした後のコントラクトの残高を取得し、結果を出力（0.0001ETH引かれていることを確認）
+     * output the result
      */
     contractBalance = await hre.ethers.provider.getBalance(waveContract.address);
     console.log(
