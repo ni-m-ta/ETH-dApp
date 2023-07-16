@@ -12,6 +12,7 @@
 
 # How it works
 * deploy the smart contrac written in Solidity in Ethereum network
-* packages/contract/scripts/deploy.js: allow the interaction between frontend written in JS and Ethereum network
 * packages/client/src/App.js: a frontend and backend
 * packages/contract/contracts/WavePortal.sol: a smart contract
+* packages/contract/scripts/run.js: to test the deployment for the contract
+* packages/contract/scripts/deploy.js: allow the interaction between frontend written in JS and Ethereum network
