@@ -145,6 +145,8 @@ const App = () => {
         );
         let count = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", count.toNumber());
+        let contractBalance = await provider.getBalance(wavePortalContract.address);
+        console.log("Contract balance:", ethers.utils.formatEther(contractBalance));
         /* write 👋（wave）in the smart contract */
         const waveTxn = await wavePortalContract.wave(messageValue, {
           gasLimit: 300000,
@@ -154,6 +156,22 @@ const App = () => {
         console.log("Mined -- ", waveTxn.hash);
         count = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", count.toNumber());
+        // let contractBalance = await provider.getBalance(wavePortalContract.address);
+        let contractBalance_post = await provider.getBalance(
+          wavePortalContract.address
+        );
+        console.log("Contract balance:", ethers.utils.formatEther(contractBalance));
+        /* check if the amount of ETH in the contract decreases */
+        if (contractBalance_post.lt(contractBalance)) {
+          /* if the amount of ETH in the contract decreases, output the following log */
+          console.log("User won ETH!");
+        } else {
+          console.log("User didn't win ETH.");
+        }
+        console.log(
+          "Contract balance after wave:",
+          ethers.utils.formatEther(contractBalance_post)
+        );
       } else {
         console.log("Ethereum object doesn't exist!");
       }
